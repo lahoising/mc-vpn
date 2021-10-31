@@ -37,10 +37,16 @@ server_admin="b"
 while [ -n "${server_admin}" ]
 do
 	read -p "add server admin (leave blank if done): " server_admin
-	server_cmds+="/op ${server_admin}\n"
-	server_cmds+="/whitelist add ${server_admin}\n"
+	if [ -n "${server_admin}" ]
+	then
+		server_cmds+="/op ${server_admin}\n"
+		server_cmds+="/whitelist add ${server_admin}\n"
+	fi
 done
 server_cmds+="/stop\n"				# stop the server
 printf "${server_cmds}" | java -jar ${mc_server_file} --nogui
+
+read -p "How much RAM (e.g. 1G, 512M) should the server use? " reserved_ram
+echo "${reserved_ram}" > ram
 
 popd
