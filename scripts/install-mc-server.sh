@@ -9,7 +9,7 @@ mkdir -p ${server_dir}
 pushd ${server_dir}
 
 # download minecraft server program
-mc_server_jar_url=https://launcher.mojang.com/v1/objects/a16d67e5807f57fc4e550299cf20226194497dc2/server.jar
+mc_server_jar_url=https://launcher.mojang.com/v1/objects/125e5adf40c659fd3bce3e66e67a16bb49ecc1b9/server.jar
 mc_server_file=minecraft_server.jar
 curl -L ${mc_server_jar_url} -o ${mc_server_file}
 
